@@ -20,9 +20,10 @@
 		8E0A8EC32BF0312C008681C5 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0A8EC22BF0312C008681C5 /* DetailsViewModel.swift */; };
 		8E0A8EC52BF03145008681C5 /* DetailsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0A8EC42BF03145008681C5 /* DetailsProtocols.swift */; };
 		8E0A8EC72BF03187008681C5 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0A8EC62BF03187008681C5 /* HomeViewModel.swift */; };
-		8E0A8EC92BF0319F008681C5 /* HomeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0A8EC82BF0319F008681C5 /* HomeProtocols.swift */; };
+		8E0A8EC92BF0319F008681C5 /* HomeFlowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0A8EC82BF0319F008681C5 /* HomeFlowDelegate.swift */; };
 		8E0A8ECB2BF031CF008681C5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0A8ECA2BF031CF008681C5 /* HomeView.swift */; };
 		8E0A8ECD2BF031E0008681C5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0A8ECC2BF031E0008681C5 /* HomeViewController.swift */; };
+		8E0A8F152BF0EC9C008681C5 /* CoordinatorFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0A8F142BF0EC9C008681C5 /* CoordinatorFlowController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,9 +61,10 @@
 		8E0A8EC22BF0312C008681C5 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
 		8E0A8EC42BF03145008681C5 /* DetailsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsProtocols.swift; sourceTree = "<group>"; };
 		8E0A8EC62BF03187008681C5 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		8E0A8EC82BF0319F008681C5 /* HomeProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProtocols.swift; sourceTree = "<group>"; };
+		8E0A8EC82BF0319F008681C5 /* HomeFlowDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFlowDelegate.swift; sourceTree = "<group>"; };
 		8E0A8ECA2BF031CF008681C5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		8E0A8ECC2BF031E0008681C5 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		8E0A8F142BF0EC9C008681C5 /* CoordinatorFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFlowController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,8 +118,9 @@
 				8E0A8EBC2BF02F6B008681C5 /* App */,
 				8E0A8ECF2BF0320C008681C5 /* Model */,
 				8E0A8EBD2BF02F8F008681C5 /* Features */,
-				8E0A8EBB2BF02F51008681C5 /* Assets */,
 				8E0A8ECE2BF031F4008681C5 /* Services */,
+				8E0A8F132BF0EC13008681C5 /* CoordinatorFlow */,
+				8E0A8EBB2BF02F51008681C5 /* Assets */,
 				8E0A8E992BF02B73008681C5 /* Info.plist */,
 			);
 			path = "Acta-Diurna";
@@ -170,7 +173,7 @@
 		8E0A8EBE2BF02FBD008681C5 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				8E0A8EC82BF0319F008681C5 /* HomeProtocols.swift */,
+				8E0A8F162BF0EDB6008681C5 /* Protocols */,
 				8E0A8EC62BF03187008681C5 /* HomeViewModel.swift */,
 				8E0A8ECA2BF031CF008681C5 /* HomeView.swift */,
 				8E0A8ECC2BF031E0008681C5 /* HomeViewController.swift */,
@@ -202,6 +205,22 @@
 				8E0A8E912BF02B71008681C5 /* Acta_Diurna.xcdatamodeld */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		8E0A8F132BF0EC13008681C5 /* CoordinatorFlow */ = {
+			isa = PBXGroup;
+			children = (
+				8E0A8F142BF0EC9C008681C5 /* CoordinatorFlowController.swift */,
+			);
+			path = CoordinatorFlow;
+			sourceTree = "<group>";
+		};
+		8E0A8F162BF0EDB6008681C5 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				8E0A8EC82BF0319F008681C5 /* HomeFlowDelegate.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -336,10 +355,11 @@
 			files = (
 				8E0A8E8D2BF02B71008681C5 /* DetailsViewController.swift in Sources */,
 				8E0A8EC12BF0301E008681C5 /* DetailsView.swift in Sources */,
+				8E0A8F152BF0EC9C008681C5 /* CoordinatorFlowController.swift in Sources */,
 				8E0A8E892BF02B71008681C5 /* AppDelegate.swift in Sources */,
 				8E0A8ECB2BF031CF008681C5 /* HomeView.swift in Sources */,
 				8E0A8EC72BF03187008681C5 /* HomeViewModel.swift in Sources */,
-				8E0A8EC92BF0319F008681C5 /* HomeProtocols.swift in Sources */,
+				8E0A8EC92BF0319F008681C5 /* HomeFlowDelegate.swift in Sources */,
 				8E0A8E8B2BF02B71008681C5 /* SceneDelegate.swift in Sources */,
 				8E0A8ECD2BF031E0008681C5 /* HomeViewController.swift in Sources */,
 				8E0A8E932BF02B71008681C5 /* Acta_Diurna.xcdatamodeld in Sources */,

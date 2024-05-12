@@ -10,7 +10,7 @@ import UIKit
 class HomeViewController:  UIViewController{
     
     // MARK: - Properties
-   
+    var coordinator: CoordinatorFlowController?
     var viewModel: HomeViewModel?
     
     private lazy var homeView : HomeView = {
@@ -27,12 +27,13 @@ class HomeViewController:  UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
   
     }
   
     init(viewModel: HomeViewModel){
         super.init (nibName: nil, bundle: nil)
-       
+        homeView.delegateFlow = self
         self.viewModel = viewModel
     }
     required init?(coder: NSCoder) {
@@ -40,4 +41,11 @@ class HomeViewController:  UIViewController{
     }
    
 
+}
+extension HomeViewController: HomeFlowDelegate{
+    func goToDetails() {
+        coordinator?.goToDetails()
+    }
+    
+    
 }

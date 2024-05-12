@@ -6,5 +6,8 @@
 //
 
 import Foundation
+import UIKit
 
-
+protocol HomeFlowDelegate: AnyObject{
+    func goToDetails()
+}

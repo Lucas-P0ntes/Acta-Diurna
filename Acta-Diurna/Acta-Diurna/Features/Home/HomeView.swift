@@ -8,15 +8,16 @@
 import UIKit
 
 class HomeView: UIView {
-    var navigationController: UINavigationController?
+    
+    weak var delegateFlow: HomeFlowDelegate?
 
     
     // Adiciona um botão que irá navegar para outra página
     private lazy var nextPageButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Próxima Página", for: .normal)
-        button.backgroundColor = .white
         button.addTarget(self, action: #selector(navigateToNextPage), for: .touchUpInside)
+        button.backgroundColor = .black
         return button
     }()
 
@@ -27,19 +28,12 @@ class HomeView: UIView {
         super.layoutSubviews()
         backgroundColor = .green
         addSubview(nextPageButton)
-        nextPageButton.frame = CGRect(x: 50, y: 50, width: 200, height: 50)
+        nextPageButton.frame = CGRect(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.width/2, width: 200, height: 50)
     }
     
     
     @objc private func navigateToNextPage() {
-        
-           guard let navigationController = navigationController else {
-               print("Erro: UINavigationController não definida.")
-               return
-           }
-           
-           let nextViewController = DetailsViewController(viewModel: DetailsViewModel())
-           navigationController.pushViewController(nextViewController, animated: true)
+        delegateFlow?.goToDetails()
        }
 
 }

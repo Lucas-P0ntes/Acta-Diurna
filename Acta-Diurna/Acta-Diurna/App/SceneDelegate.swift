@@ -9,22 +9,28 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    var coordinator: CoordinatorFlowController?
 
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        guard let windowScene = scene as? UIWindowScene else { return }
-               
-        let window = UIWindow(windowScene: windowScene)
+        guard let windowScene = (scene as? UIWindowScene) else { return }
         
+        let window = UIWindow (windowScene: windowScene)
         
-        let rootViewController = HomeViewController(viewModel: HomeViewModel())
-              
-               // Configurar root view controller
+        coordinator = CoordinatorFlowController(navigationController: UINavigationController())
+        let rootViewController = coordinator?.start()
+        
         window.rootViewController = rootViewController
-               
-               // Configurar a janela principal
-               self.window = window
-               window.makeKeyAndVisible()
+        window.makeKeyAndVisible()
+
+        self.window = window
+        
+        // Definir a janela como a janela principal
+        self.window = window
+        window.makeKeyAndVisible()
     }
+
+
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.

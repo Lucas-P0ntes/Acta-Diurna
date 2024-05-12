@@ -10,7 +10,7 @@ import UIKit
 class DetailsViewController: UIViewController{
     
     // MARK: - Properties
-    
+    var coordinator: CoordinatorFlowController?
     var viewModel: DetailsViewModel?
     
     private lazy var detailsView : DetailsView = {
