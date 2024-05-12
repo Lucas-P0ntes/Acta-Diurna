@@ -24,6 +24,9 @@
 		8E0A8ECB2BF031CF008681C5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0A8ECA2BF031CF008681C5 /* HomeView.swift */; };
 		8E0A8ECD2BF031E0008681C5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0A8ECC2BF031E0008681C5 /* HomeViewController.swift */; };
 		8E0A8F152BF0EC9C008681C5 /* CoordinatorFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0A8F142BF0EC9C008681C5 /* CoordinatorFlowController.swift */; };
+		8E0A8F192BF0F37B008681C5 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0A8F182BF0F37B008681C5 /* CardCollectionViewCell.swift */; };
+		8E0A8F1B2BF0F656008681C5 /* ViewCodeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0A8F1A2BF0F656008681C5 /* ViewCodeProtocol.swift */; };
+		8E0A8F1D2BF132A3008681C5 /* CustomTextLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0A8F1C2BF132A3008681C5 /* CustomTextLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +68,9 @@
 		8E0A8ECA2BF031CF008681C5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		8E0A8ECC2BF031E0008681C5 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8E0A8F142BF0EC9C008681C5 /* CoordinatorFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFlowController.swift; sourceTree = "<group>"; };
+		8E0A8F182BF0F37B008681C5 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
+		8E0A8F1A2BF0F656008681C5 /* ViewCodeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCodeProtocol.swift; sourceTree = "<group>"; };
+		8E0A8F1C2BF132A3008681C5 /* CustomTextLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +179,8 @@
 		8E0A8EBE2BF02FBD008681C5 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				8E0A8F1A2BF0F656008681C5 /* ViewCodeProtocol.swift */,
+				8E0A8F172BF0F231008681C5 /* Componets */,
 				8E0A8F162BF0EDB6008681C5 /* Protocols */,
 				8E0A8EC62BF03187008681C5 /* HomeViewModel.swift */,
 				8E0A8ECA2BF031CF008681C5 /* HomeView.swift */,
@@ -221,6 +229,15 @@
 				8E0A8EC82BF0319F008681C5 /* HomeFlowDelegate.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		8E0A8F172BF0F231008681C5 /* Componets */ = {
+			isa = PBXGroup;
+			children = (
+				8E0A8F182BF0F37B008681C5 /* CardCollectionViewCell.swift */,
+				8E0A8F1C2BF132A3008681C5 /* CustomTextLabel.swift */,
+			);
+			path = Componets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -360,11 +377,14 @@
 				8E0A8ECB2BF031CF008681C5 /* HomeView.swift in Sources */,
 				8E0A8EC72BF03187008681C5 /* HomeViewModel.swift in Sources */,
 				8E0A8EC92BF0319F008681C5 /* HomeFlowDelegate.swift in Sources */,
+				8E0A8F192BF0F37B008681C5 /* CardCollectionViewCell.swift in Sources */,
 				8E0A8E8B2BF02B71008681C5 /* SceneDelegate.swift in Sources */,
 				8E0A8ECD2BF031E0008681C5 /* HomeViewController.swift in Sources */,
 				8E0A8E932BF02B71008681C5 /* Acta_Diurna.xcdatamodeld in Sources */,
+				8E0A8F1B2BF0F656008681C5 /* ViewCodeProtocol.swift in Sources */,
 				8E0A8EC32BF0312C008681C5 /* DetailsViewModel.swift in Sources */,
 				8E0A8EC52BF03145008681C5 /* DetailsProtocols.swift in Sources */,
+				8E0A8F1D2BF132A3008681C5 /* CustomTextLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
