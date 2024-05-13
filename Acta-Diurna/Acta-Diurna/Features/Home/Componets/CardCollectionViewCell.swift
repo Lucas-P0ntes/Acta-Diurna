@@ -67,7 +67,6 @@ class CardCollectionViewCell: UICollectionViewCell {
     }
 }
 
-
 extension CardCollectionViewCell: ViewCodeProtocol {
     func buildViewHierarchy() {
         addSubview(imageView)
@@ -83,8 +82,7 @@ extension CardCollectionViewCell: ViewCodeProtocol {
 
             imageView.topAnchor.constraint(equalTo: topAnchor),
             imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            imageView.widthAnchor.constraint(equalToConstant: 150),
+            imageView.trailingAnchor.constraint(equalTo: trailingAnchor), // Alterado para trailingAnchor
             imageView.heightAnchor.constraint(equalToConstant: 80),
             
             titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 20),
@@ -102,6 +100,7 @@ extension CardCollectionViewCell: ViewCodeProtocol {
         ])
     }
 }
+
 #Preview{
     CardCollectionViewCell()
 }

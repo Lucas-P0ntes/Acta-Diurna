@@ -27,6 +27,7 @@
 		8E0A8F192BF0F37B008681C5 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0A8F182BF0F37B008681C5 /* CardCollectionViewCell.swift */; };
 		8E0A8F1B2BF0F656008681C5 /* ViewCodeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0A8F1A2BF0F656008681C5 /* ViewCodeProtocol.swift */; };
 		8E0A8F1D2BF132A3008681C5 /* CustomTextLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0A8F1C2BF132A3008681C5 /* CustomTextLabel.swift */; };
+		8E0A8F202BF18EC7008681C5 /* ScreenSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0A8F1F2BF18EC7008681C5 /* ScreenSize.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		8E0A8F182BF0F37B008681C5 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
 		8E0A8F1A2BF0F656008681C5 /* ViewCodeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCodeProtocol.swift; sourceTree = "<group>"; };
 		8E0A8F1C2BF132A3008681C5 /* CustomTextLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextLabel.swift; sourceTree = "<group>"; };
+		8E0A8F1F2BF18EC7008681C5 /* ScreenSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenSize.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 		8E0A8E872BF02B71008681C5 /* Acta-Diurna */ = {
 			isa = PBXGroup;
 			children = (
+				8E0A8F1E2BF18E8A008681C5 /* Util */,
 				8E0A8EBC2BF02F6B008681C5 /* App */,
 				8E0A8ECF2BF0320C008681C5 /* Model */,
 				8E0A8EBD2BF02F8F008681C5 /* Features */,
@@ -238,6 +241,14 @@
 				8E0A8F1C2BF132A3008681C5 /* CustomTextLabel.swift */,
 			);
 			path = Componets;
+			sourceTree = "<group>";
+		};
+		8E0A8F1E2BF18E8A008681C5 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				8E0A8F1F2BF18EC7008681C5 /* ScreenSize.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -376,6 +387,7 @@
 				8E0A8E892BF02B71008681C5 /* AppDelegate.swift in Sources */,
 				8E0A8ECB2BF031CF008681C5 /* HomeView.swift in Sources */,
 				8E0A8EC72BF03187008681C5 /* HomeViewModel.swift in Sources */,
+				8E0A8F202BF18EC7008681C5 /* ScreenSize.swift in Sources */,
 				8E0A8EC92BF0319F008681C5 /* HomeFlowDelegate.swift in Sources */,
 				8E0A8F192BF0F37B008681C5 /* CardCollectionViewCell.swift in Sources */,
 				8E0A8E8B2BF02B71008681C5 /* SceneDelegate.swift in Sources */,
