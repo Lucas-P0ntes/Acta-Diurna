@@ -7,11 +7,12 @@
 
 import UIKit
 
-class DetailsViewController: UIViewController{
+class DetailsViewController: UIViewController, UIScrollViewDelegate{
     
     // MARK: - Properties
     var coordinator: CoordinatorFlowController?
     var viewModel: DetailsViewModel?
+    var scrollView: UIScrollView!
     
     private lazy var detailsView : DetailsView = {
         return DetailsView()
@@ -26,7 +27,7 @@ class DetailsViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        detailsView.scrollView.delegate = self
     }
     
     init(viewModel: DetailsViewModel){
