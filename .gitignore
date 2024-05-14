@@ -131,4 +131,6 @@ iOSInjectionProject/
 
 # End of https://www.toptal.com/developers/gitignore/api/xcode,macos,swift
 
+Acta-Diurna/Acta-Diurna/Services/ApiKeyNews.swift
+ApiKeyNews.swift
 

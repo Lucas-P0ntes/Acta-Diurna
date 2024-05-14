@@ -8,15 +8,20 @@
 import UIKit
 class CardCollectionViewCell: UICollectionViewCell {
     let imageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
-        imageView.image = UIImage(named: "Image")
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
+         let imageView = UIImageView()
+         imageView.contentMode = .scaleAspectFill
+         imageView.clipsToBounds = true
+         imageView.translatesAutoresizingMaskIntoConstraints = false
+         return imageView
+     }()
+     
+     let activityIndicator: UIActivityIndicatorView = {
+         let indicator = UIActivityIndicatorView(style: .gray)
+         indicator.translatesAutoresizingMaskIntoConstraints = false
+         indicator.hidesWhenStopped = true
+         return indicator
+     }()
 
-    
     let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -25,10 +30,9 @@ class CardCollectionViewCell: UICollectionViewCell {
         label.numberOfLines = 0
         label.text = "The New Hot Handset Is a Cute and Transparent Dumb Phone You Can't Buy"
         label.font = UIFont.systemFont(ofSize: 13)
-        // label.font = UIFont(name: "InclusiveSans-Regular", size: 10)
         return label
     }()
-    
+
     let descriptionLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
@@ -38,7 +42,7 @@ class CardCollectionViewCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
+
     let autoresLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -48,25 +52,47 @@ class CardCollectionViewCell: UICollectionViewCell {
         let prefix = "Autor: "
         label.text = prefix + "Julian Chokkattu"
         label.font = UIFont.systemFont(ofSize: 10)
-        // label.font = UIFont(name: "InclusiveSans-Regular", size: 7)
         return label
     }()
 
-    
     override init(frame: CGRect) {
-        
         super.init(frame: frame)
         setupView()
         backgroundColor = .white
         layer.cornerRadius = 10
-        layer.masksToBounds = true 
+        layer.masksToBounds = true
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-}
 
+    // Function to set image from URL
+    var imageURL: URL? {
+        didSet {
+            guard let url = imageURL else { return }
+            
+            // Show activity indicator while loading
+            activityIndicator.startAnimating()
+            
+            // Load the image from URL
+            URLSession.shared.dataTask(with: url) { [weak self] (data, response, error) in
+                guard let data = data, error == nil else {
+                    DispatchQueue.main.async {
+                        // Hide activity indicator if there's an error or no data
+                        self?.activityIndicator.stopAnimating()
+                    }
+                    return
+                }
+                DispatchQueue.main.async {
+                    self?.imageView.image = UIImage(data: data)
+                    // Hide activity indicator after image is loaded
+                    self?.activityIndicator.stopAnimating()
+                }
+            }.resume()
+        }
+    }
+}
 extension CardCollectionViewCell: ViewCodeProtocol {
     func buildViewHierarchy() {
         addSubview(imageView)

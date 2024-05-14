@@ -6,46 +6,60 @@
 //
 
 import UIKit
-
-class HomeViewController:  UIViewController{
+class HomeViewController: UIViewController {
     
     // MARK: - Properties
     var coordinator: CoordinatorFlowController?
     var viewModel: HomeViewModel?
     
-    private lazy var homeView : HomeView = {
+    private lazy var homeView: HomeView = {
         return HomeView()
     }()
-
+    
     // MARK: - View Lifecycle
     override func loadView() {
         super.loadView()
-        self.view =  homeView
-
-        
+        self.view = homeView
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-  
+        
+            
+        Task {
+           let articles =  try await viewModel?.fetchArticles() ?? []
+            self.homeView.fetchArticles(articles: articles)
+        }
+        
     }
-  
-    init(viewModel: HomeViewModel){
-        super.init (nibName: nil, bundle: nil)
+    
+    init(viewModel: HomeViewModel) {
+        super.init(nibName: nil, bundle: nil)
         homeView.delegateFlow = self
         self.viewModel = viewModel
     }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-   
-
 }
-extension HomeViewController: HomeFlowDelegate{
+
+extension HomeViewController: HomeFlowDelegate {
     func goToDetails() {
         coordinator?.goToDetails()
     }
+}
+
+extension HomeViewController {
     
     
+    
+//    func fetchArticles() -> [Article] {
+//        var model: [Article] = []
+//        Task {
+//            model = try await viewModel?.fetchArticles() ?? []
+//        }
+//        return model
+//    }
 }

@@ -63,7 +63,7 @@ class DetailsView: UIView {
         let label = UILabel()
         label.textAlignment = .center
         label.numberOfLines = 0
-        label.preferredMaxLayoutWidth = screenWidth - 20
+      
 
         label.text = "The company HMD, known for making Nokia phones, has partnered with Heineken and Bodega on “The Boring Phone” and there will only be 5,000 of them."
         label.font = UIFont.systemFont(ofSize: 15)
@@ -126,8 +126,8 @@ extension DetailsView {
                scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
                
                imageView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-               imageView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
-               imageView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+               imageView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 8),
+               imageView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -8),
                imageView.widthAnchor.constraint(equalToConstant: 100),
 
                imageView.heightAnchor.constraint(equalToConstant: 355),
