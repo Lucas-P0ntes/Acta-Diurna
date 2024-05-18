@@ -8,5 +8,12 @@
 import Foundation
 
 class DetailsViewModel {
-    
+    private let coreDataManager = CoreDataManager.shared
+
+    func saveArtigo(artigo: ArticleSaveModel){
+        coreDataManager.saveArticle(articleSave: artigo)
+
+        
+    }
+  
 }

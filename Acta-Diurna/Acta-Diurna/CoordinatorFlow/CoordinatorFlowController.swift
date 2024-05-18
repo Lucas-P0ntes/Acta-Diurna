@@ -27,10 +27,11 @@ class CoordinatorFlowController{
 }
 
 extension CoordinatorFlowController: HomeFlowDelegate{
-    func goToDetails() {
-        let ViewController =  DetailsViewController(viewModel: DetailsViewModel())
+    func goToDetails(artigo: Article) {
+        let ViewController =  DetailsViewController(viewModel: DetailsViewModel(), article: artigo)
         ViewController.coordinator = self
         navigationController.pushViewController(ViewController , animated: true)
-        
     }
+    
+ 
 }
