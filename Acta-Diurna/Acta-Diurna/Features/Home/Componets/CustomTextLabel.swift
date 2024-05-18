@@ -25,6 +25,7 @@ class CustomTextLabel: UIView {
         case regular
         case semibold
         case bold
+        case black
     }
     
     enum CustomTextColorType: Int {
@@ -44,10 +45,15 @@ class CustomTextLabel: UIView {
     }
     private var textFont: UIFont {
         switch textType {
-        case .regular: return .systemFont(ofSize: textSize, weight: .regular)
-        case .semibold: return .systemFont(ofSize: textSize, weight: .semibold)
-        case .bold: return .systemFont(ofSize: textSize, weight: .bold)
-        }
+        case .regular: return UIFont(name: "PlayfairDisplay-Medium", size: textSize) ?? .systemFont(ofSize: textSize, weight: .regular)
+            
+        case .semibold: return UIFont(name: "PlayfairDisplay-Medium", size: textSize) ?? .systemFont(ofSize: textSize, weight: .semibold)
+            
+            
+        case .bold: return UIFont(name: "PlayfairDisplay-Bold", size: textSize) ?? .systemFont(ofSize: textSize, weight: .bold)
+        
+    case .black: return UIFont(name: "PlayfairDisplay-Black", size: textSize) ?? .systemFont(ofSize: textSize, weight: .bold)
+    }
     }
     private var textColor: UIColor {
         switch colorType {

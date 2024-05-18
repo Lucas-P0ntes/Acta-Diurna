@@ -9,5 +9,5 @@ import Foundation
 import UIKit
 
 protocol HomeFlowDelegate: AnyObject{
-    func goToDetails()
+    func goToDetails(artigo:Article)
 }

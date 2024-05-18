@@ -32,7 +32,11 @@ class HomeViewController: UIViewController {
             self.homeView.fetchArticles(articles: articles)
         }
         
+        self.homeView.fetchArticlesSaves(articlesSaves: viewModel?.fetchAllArticleSaves() ?? [])
+        
     }
+    
+    
     
     init(viewModel: HomeViewModel) {
         super.init(nibName: nil, bundle: nil)
@@ -46,20 +50,11 @@ class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: HomeFlowDelegate {
-    func goToDetails() {
-        coordinator?.goToDetails()
+    func goToDetails(artigo: Article) {
+        coordinator?.goToDetails(artigo: artigo)
+
     }
+    
 }
 
-extension HomeViewController {
-    
-    
-    
-//    func fetchArticles() -> [Article] {
-//        var model: [Article] = []
-//        Task {
-//            model = try await viewModel?.fetchArticles() ?? []
-//        }
-//        return model
-//    }
-}
+

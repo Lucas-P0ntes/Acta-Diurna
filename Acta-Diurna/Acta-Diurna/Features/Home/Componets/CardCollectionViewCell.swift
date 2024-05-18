@@ -29,7 +29,7 @@ class CardCollectionViewCell: UICollectionViewCell {
         label.clipsToBounds = true
         label.numberOfLines = 0
         label.text = "The New Hot Handset Is a Cute and Transparent Dumb Phone You Can't Buy"
-        label.font = UIFont.systemFont(ofSize: 13)
+        label.font = UIFont(name: "PlayfairDisplay-SemiBold", size: 13.0)
         return label
     }()
 
@@ -38,7 +38,7 @@ class CardCollectionViewCell: UICollectionViewCell {
         label.textAlignment = .left
         label.numberOfLines = 0
         label.text = "The company HMD, known for making Nokia phones, has partnered with Heineken and Bodega on “The Boring Phone” and there will only be 5,000 of them."
-        label.font = UIFont.systemFont(ofSize: 7)
+        label.font = UIFont(name: "PlayfairDisplay-Medium", size: 7.0)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -51,7 +51,7 @@ class CardCollectionViewCell: UICollectionViewCell {
         label.numberOfLines = 0
         let prefix = "Autor: "
         label.text = prefix + "Julian Chokkattu"
-        label.font = UIFont.systemFont(ofSize: 10)
+        label.font = UIFont(name: "PlayfairDisplay-SemiBold", size: 8.0)
         return label
     }()
 
@@ -111,7 +111,7 @@ extension CardCollectionViewCell: ViewCodeProtocol {
             imageView.trailingAnchor.constraint(equalTo: trailingAnchor), // Alterado para trailingAnchor
             imageView.heightAnchor.constraint(equalToConstant: 80),
             
-            titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 20),
+            titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 15),
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
             
@@ -127,6 +127,4 @@ extension CardCollectionViewCell: ViewCodeProtocol {
     }
 }
 
-#Preview{
-    CardCollectionViewCell()
-}
+

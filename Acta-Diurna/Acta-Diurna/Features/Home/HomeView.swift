@@ -1,15 +1,24 @@
 import UIKit
 
-
 class HomeView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     weak var delegateFlow: HomeFlowDelegate?
-    
+    var ActDiurna = CustomTextLabel(sizeType: .size15, textType: .black, colorType: .black, labelText: "Act Diurna")
     var title = CustomTextLabel(sizeType: .size40, textType: .bold, colorType: .black, labelText: "Notícias e blogs")
-    var categoryTopArticles = CustomTextLabel(sizeType: .size15, textType: .bold, colorType: .black, labelText: "Top Artigos:")
-    var categoryYourArticlesFavorites = CustomTextLabel(sizeType: .size15, textType: .bold, colorType: .black, labelText: "Seus artigos salvos:")
+    var categoryTopArticles = CustomTextLabel(sizeType: .size15, textType:.black, colorType: .black, labelText: "Top Artigos:")
+    var categoryYourArticlesFavorites = CustomTextLabel(sizeType: .size15, textType: .black, colorType: .black, labelText: "Seus artigos salvos:")
     
     var articles: [Article] = [] // Adicione esta propriedade
+    var articlesSaves: [ArticleSave] = [] // Adicione esta propriedade
+    
+    let background: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(named: "background")
+        return imageView
+    }()
     
     private lazy var topArticlesCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -41,10 +50,21 @@ class HomeView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlow
         
         setupView()
     }
+  
+      
+
+    
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-      
-        return  articles.count
+        if collectionView == topArticlesCollectionView {
+            return articles.count
+        } else {
+            return articlesSaves.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -53,14 +73,19 @@ class HomeView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlow
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardCell", for: indexPath) as! CardCollectionViewCell
-        let article = articles[indexPath.item]
-        cell.titleLabel.text = article.title
-        cell.autoresLabel.text = article.author
-        cell.descriptionLabel.text = article.description
         
-        cell.imageURL = URL(string: article.urlToImage ?? "")
+        if collectionView == topArticlesCollectionView {
+            let article = articles[indexPath.item]
+            cell.titleLabel.text = article.title
+            cell.autoresLabel.text = article.author
+            cell.descriptionLabel.text = article.description
+            cell.imageURL = URL(string: article.urlToImage ?? "")
+        } else {
+            
+            let articleSave = articlesSaves[indexPath.item]
+           
+        }
         
         return cell
     }
@@ -70,22 +95,32 @@ class HomeView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlow
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegateFlow?.goToDetails()
+        if collectionView == topArticlesCollectionView {
+            let selectedArticle = articles[indexPath.item]
+            delegateFlow?.goToDetails(artigo: selectedArticle)
+        } else {
+            // Handle selection of saved articles
+        }
     }
     
     func fetchArticles(articles: [Article]) {
-        
         self.articles = articles
-        
         topArticlesCollectionView.reloadData()
+    }
+    
+    func fetchArticlesSaves(articlesSaves: [ArticleSave]) {
+        self.articlesSaves = articlesSaves
         yourArticlesFavoritesCollectionView.reloadData()
-        
-       
     }
 }
 
-extension HomeView: ViewCodeProtocol{
+extension HomeView: ViewCodeProtocol {
     func buildViewHierarchy() {
+        addSubview(background)
+        background.translatesAutoresizingMaskIntoConstraints = false
+        
+        addSubview(ActDiurna)
+        ActDiurna.translatesAutoresizingMaskIntoConstraints = false
         
         addSubview(title)
         title.translatesAutoresizingMaskIntoConstraints = false
@@ -104,9 +139,16 @@ extension HomeView: ViewCodeProtocol{
     }
     
     func setupConstraints() {
-        
         NSLayoutConstraint.activate([
-            title.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
+            background.centerXAnchor.constraint(equalTo: centerXAnchor),
+            background.centerYAnchor.constraint(equalTo: centerYAnchor),
+            background.heightAnchor.constraint(equalToConstant:screenHeight/2),
+            background.widthAnchor.constraint(equalToConstant:screenHeight/2),
+            
+            ActDiurna.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
+            ActDiurna.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            
+            title.topAnchor.constraint(equalTo: self.ActDiurna.bottomAnchor,constant: 50),
             title.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             
             categoryTopArticles.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 40),
@@ -115,7 +157,7 @@ extension HomeView: ViewCodeProtocol{
             topArticlesCollectionView.topAnchor.constraint(equalTo: categoryTopArticles.bottomAnchor, constant: 20),
             topArticlesCollectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             topArticlesCollectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            topArticlesCollectionView.heightAnchor.constraint(equalToConstant: 240),
+            topArticlesCollectionView.heightAnchor.constraint(equalToConstant: 250),
             
             categoryYourArticlesFavorites.topAnchor.constraint(equalTo: topArticlesCollectionView.bottomAnchor, constant: 40),
             categoryYourArticlesFavorites.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
@@ -123,7 +165,11 @@ extension HomeView: ViewCodeProtocol{
             yourArticlesFavoritesCollectionView.topAnchor.constraint(equalTo: categoryYourArticlesFavorites.bottomAnchor, constant: 20),
             yourArticlesFavoritesCollectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             yourArticlesFavoritesCollectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            yourArticlesFavoritesCollectionView.heightAnchor.constraint(equalToConstant: 240), // Defina a altura adequada conforme necessário
+            yourArticlesFavoritesCollectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
         ])
+    }
+    
+    func setupAdditionalConfiguration() {
+        // Configurações adicionais, se houver
     }
 }
