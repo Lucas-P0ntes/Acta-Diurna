@@ -11,7 +11,8 @@ Este é o repositório do projeto "Acta Diurna", um aplicativo iOS desenvolvido 
 - <img width="1196" alt="Captura de Tela 2024-05-17 às 22 47 39" src="https://github.com/Lucas-P0ntes/Acta-Diurna/assets/80328167/6e253b8d-92cc-432f-95de-29155f268d40">
 
 - Link Apple Store: A AppleStore recusou por conta de não tem funcionalidades além de salvar o artigo.
- <img width="748" alt="Captura de Tela 2024-05-17 às 22 46 27" src="https://github.com/Lucas-P0ntes/Acta-Diurna/assets/80328167/de6d964e-54c5-4122-a5f9-72813a878778">
+ 
+<img width="746" alt="Captura de Tela 2024-05-17 às 22 50 18" src="https://github.com/Lucas-P0ntes/Acta-Diurna/assets/80328167/ae0c6cae-1390-4e31-93f8-cc9354f65357">
 
 
 ## Funcionalidades
@@ -34,9 +35,7 @@ O projeto atende aos seguintes requisitos do desafio:
 - Criatividade na construção do layout.
 
 
-![Simulator Screenshot - iPhone 15 - 2024-05-17 at 22 39 59](https://github.com/Lucas-P0ntes/Acta-Diurna/assets/80328167/6497b0c0-8f70-4ca7-8f96-18af21519f4e)
-
-![Simulator Screenshot - iPhone 11 Pro Max - 2024-05-15 at 16 56 39](https://github.com/Lucas-P0ntes/Acta-Diurna/assets/80328167/4df04d46-34fc-4203-aee8-bdc58b928292)
+![Simulator Screenshot - iPhone 15 - 2024-05-17 at 22 39 59](https://github.com/Lucas-P0ntes/Acta-Diurna/assets/80328167/6497b0c0-8f70-4ca7-8f96-18af21519f4e)![Simulator Screenshot - iPhone 11 Pro Max - 2024-05-15 at 16 56 39](https://github.com/Lucas-P0ntes/Acta-Diurna/assets/80328167/4df04d46-34fc-4203-aee8-bdc58b928292)
 
 
 ## Instalação
